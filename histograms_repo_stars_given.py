@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import powerlaw
 
 # Function to create histograms
 def histplot(data, binsize, ylab, xlab, color, title):
@@ -62,4 +63,44 @@ histplot(american_6, binsize, 'Users', 'Star Count', 'blue', '')
 binsize = int(np.max(indian_all)/multiplier)
 histplot(indian_6, binsize, 'Users', 'Star Count', 'green', 'All Stars Given by Count, LogLog Scale Plot')
 plt.savefig('logscale_all_stars_given.png')
+plt.close()
+
+powerlaw.plot_pdf(russian_6, color='black')
+powerlaw.plot_pdf(chinese_6, color='red')
+powerlaw.plot_pdf(american_6, color='blue')
+powerlaw.plot_pdf(indian_6, color='green')
+plt.ylabel('Users')
+plt.xlabel('Star Count')
+plt.title('Jan-Jun 2019 Stars Given by Count, PDF')
+plt.savefig('pdf_jan-jun_stars_given.png')
+plt.close()
+
+powerlaw.plot_ccdf(russian_6, color='black')
+powerlaw.plot_ccdf(chinese_6, color='red')
+powerlaw.plot_ccdf(american_6, color='blue')
+powerlaw.plot_ccdf(indian_6, color='green')
+plt.ylabel('Users')
+plt.xlabel('Star Count')
+plt.title('Jan-Jun 2019 Stars Given by Count, CCDF')
+plt.savefig('ccdf_jan-jun_stars_given.png')
+plt.close()
+
+powerlaw.plot_pdf(russian_all, color='black')
+powerlaw.plot_pdf(chinese_all, color='red')
+powerlaw.plot_pdf(american_all, color='blue')
+powerlaw.plot_pdf(indian_all, color='green')
+plt.ylabel('Users')
+plt.xlabel('Star Count')
+plt.title('All Stars Given by Count, PDF')
+plt.savefig('pdf_all_stars_given.png')
+plt.close()
+
+powerlaw.plot_ccdf(russian_all, color='black')
+powerlaw.plot_ccdf(chinese_all, color='red')
+powerlaw.plot_ccdf(american_all, color='blue')
+powerlaw.plot_ccdf(indian_all, color='green')
+plt.ylabel('Users')
+plt.xlabel('Star Count')
+plt.title('All Stars Given by Count, CCDF')
+plt.savefig('ccdf_all_stars_given.png')
 plt.close()

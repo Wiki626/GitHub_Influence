@@ -1,6 +1,7 @@
 # Loading the required libraries
 import pandas as pd
 import matplotlib.pyplot as plt
+plt.rcParams['agg.path.chunksize'] = 100000
 import numpy as np
 import powerlaw
 from collections import Counter
@@ -107,6 +108,7 @@ fitlineplot(american_6, 'blue')
 loglogscatter(logxy(indian_6), 'green', 'Combined Jan-Jun 2019 Forks Given by Count', 'Users', 'Fork Count')
 fitlineplot(indian_6, 'green')
 plt.savefig('loglog_jan-jun_forks_given_combined.png')
+plt.close()
 
 loglogscatter(logxy(russian_all), 'black', 'Russian All Forks Given by Count, LogLog Plot', 'Users', 'Fork Count')
 fitlineplot(russian_all, 'black')
@@ -133,11 +135,12 @@ plt.close()
 fittest(indian_all, 'Indian All Forks Given')
 
 loglogscatter(logxy(russian_all), 'black', ', LogLog Plot', 'Users', 'Fork Count')
-fitlineplot(russian_6, 'black')
+fitlineplot(russian_all, 'black')
 loglogscatter(logxy(chinese_all), 'red', '', 'Users', 'Fork Count')
-fitlineplot(chinese_6, 'red')
+fitlineplot(chinese_all, 'red')
 loglogscatter(logxy(american_all), 'blue', '', 'Users', 'Fork Count')
 fitlineplot(american_all, 'blue')
 loglogscatter(logxy(indian_all), 'green', 'Combined All Forks Given by Count', 'Users', 'Fork Count')
 fitlineplot(indian_all, 'green')
 plt.savefig('loglog_all_forks_given_combined.png')
+plt.close()
